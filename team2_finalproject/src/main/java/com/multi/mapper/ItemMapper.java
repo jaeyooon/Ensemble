@@ -1,5 +1,5 @@
 package com.multi.mapper;
 
-public interface ItemMapper {
+public class ItemMapper {
 
 }
