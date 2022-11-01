@@ -5,18 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.multi.dto.ItemDTO;
+import com.multi.dto.CateDTO;
 import com.multi.frame.MyService;
-import com.multi.mapper.ItemMapper;
+import com.multi.mapper.CateMapper;
 
 @Service
-public class ItemService implements MyService<Integer, ItemDTO>{
+public class CateService implements MyService<Integer, CateDTO>{
 
 	@Autowired
-	ItemMapper mapper;
+	CateMapper mapper;
 	
 	@Override
-	public void register(ItemDTO v) throws Exception {
+	public void register(CateDTO v) throws Exception {
 		mapper.insert(v);
 	}
 
@@ -26,22 +26,18 @@ public class ItemService implements MyService<Integer, ItemDTO>{
 	}
 
 	@Override
-	public void modify(ItemDTO v) throws Exception {
+	public void modify(CateDTO v) throws Exception {
 		mapper.update(v);
 	}
 
 	@Override
-	public ItemDTO get(Integer k) throws Exception {
+	public CateDTO get(Integer k) throws Exception {
 		return mapper.select(k);
 	}
 
 	@Override
-	public List<ItemDTO> get() throws Exception {
+	public List<CateDTO> get() throws Exception {
 		return mapper.selectall();
-	}
-	
-	public List<ItemDTO> select_cate(Integer k) throws Exception{
-		return mapper.select_cate(k);
 	}
 
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
     <meta charset="utf-8">
@@ -42,6 +42,19 @@
  }
   </style>
   
+  <script>
+  $(document).ready(function(){
+	 $('#search_btn').click(function(){
+		 $('.site-block-top-search').attr({
+			 method:'get',
+			 action:'/searchimpl'
+		 });
+		 $('.site-block-top-search').submit();
+	 }); 
+  });
+  
+  </script>
+  
   <body>
   
   <div class="site-wrap">
@@ -51,10 +64,11 @@
           <div class="row align-items-center">
 
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
+              <form class="site-block-top-search">
                 <span class="icon icon-search2"></span>
                 <input type="text" class="form-control border-0" placeholder="Search">
               </form>
+              <button id="search_btn">GO</button>
             </div>
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
