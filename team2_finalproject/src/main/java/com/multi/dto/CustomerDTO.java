@@ -22,6 +22,6 @@ public class CustomerDTO {
 	private String email;
 	private String phone;
 	private Date custdate;
-	private int withdrawal;
+	private Integer withdrawal;
 	
 }
