@@ -1,5 +1,67 @@
 <meta charset="utf-8">
 
+<style>
+
+.layout{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.qna{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.qna > li{
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+.qna > li:nth-child(n+2){ /* 아이템 구분 점선 */
+  border-top: 1px dashed #aaa;
+}
+.qna input {
+  display: none;
+}
+
+.qna label { /* 제목 - 클릭 영역 */
+  font-weight: bold;
+  color: #000;
+  margin: 20px 0 0;
+  cursor: pointer;
+}
+.qna label::before { /* 제목 앞 화살표 */
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-left: 8px solid #a00;
+  margin: 2px 0 0 8px;
+  float: left;
+}
+.qna input:checked + label::before { /* 내용 펼침 상태 제목 앞 화살표 */
+  border: 8px solid transparent;
+  border-top: 8px solid #a00;
+  border-bottom: 0;
+  margin: 8px 4px 0;
+}
+
+.qna div { /* 내용 영역 - 기본 감춤 상태 */
+  display: none;
+  color: #666;
+  font-size: 0.9375em;
+  overflow: hidden;
+  padding: 10px 0 10px 30px;
+  box-sizing: border-box;
+  transition: max-height 0.4s;
+}
+.qna input:checked + label + div { /* 내용 영역 펼침 */
+  display: block;
+}
+</style>
+
+
+<body>
   <div class="site-section">
       <div class="container">
 
@@ -8,19 +70,76 @@
             <div class="row">
               <div class="col-md-12 mb-4">
                 <div class="float-md-left mb-4"><h3 class="text-black h3">FAQ</h3></div>
+                <p></p>
                 <div class="d-flex">
+                <ul class="qna">          
+            <li>
+            <p></p>        
+                <input type="checkbox" id="qna-1">
+                <label for="qna-1">회원 탈퇴 신청을 하고 싶어요</label>
+                <div>
+                    <p>uart 에서는 서비스 탈퇴 신청 후 철회를 하실 수 없습니다.</p>
+					<p>서비스 재 이용을 원하시는 경우, 탈퇴 신청 후 서비스 재 가입하여 이용하시기 바랍니다.</p>
+					<p>단, 예매일이 경과되지 않은 예매내역이 존재하는 경우 서비스 탈퇴가 불가하오니, 이점 참고바랍니다.​</p>
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="qna-2">
+                <label for="qna-2">최근 개명하여 이름이 변경되었어요.</label>
+                <div>
+                    <p>개명 전 이름이 이미 회원정보로 등록되어 있다면, 아래의 경로를 통해 회원정보를 변경바랍니다.</p>
+                    <p>- PC : uart 홈페이지 우측 상단 [MY uart >  회원정보 > 가입정보 > 이름변경]</p> 
+					<p>- 모바일 : uart 홈페이지에서 [메인 > 더보기 > 계정정보 > 가입정보 > 이름변경]​ </p>
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="qna-3">
+                <label for="qna-3">휴대폰 번호를 변경하였습니다. 기존 정보로 계속 이용할 수 있나요?</label>
+                <div>
+                    <p>휴대폰 번호가 변경되었다면! </p>
+                    <p>휴대폰 번호 변경을 진행해야 합니다.</p>
+                    <p>- PC : uart 홈페이지 우측 상단 [MY uart >  회원정보 > 가입정보 > 휴대폰 번호 변경]</p>
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="qna-4">
+                <label for="qna-4">예매 후 티켓 수령은 어떻게 하나요?</label>
+                <div>
+                    <p>[현장 수령]</p>
+                    <p>행사 당일 현장 매표소(예매자 전용 창구)에서 예매 완료 SMS 또는, 예매번호를 제시하면 티켓을 수령할 수 있습니다.</p>
+                    <p>- 예매 완료 SMS를 받지 못하신 경우, 스팸메시지함을 확인해주세요.</p>
+                    <p>- 예매번호는 마이페이지 > 예매확인/취소에서 확인할 수 있습니다.</p>
+                    <p>공연/전시 현장 수령 유의사항</p>
+                    <p>- 공연 시작 시간 1시간 전 ~ 30분 전까지 행사장 매표소에서 티켓을 수령하실 수 있습니다.</p>
+                    <p>- 기획사 정책 또는, 행사일에 따라 현장 수령 방법의 선택이 제한될 수 있습니다.</p>
+                    <p> [모바일 티켓 – 스마트티켓] </p>
+                    <p>홈티켓 입장 바코드를 입구에서 제시하시면, 별도 발권 절차 없이 바로 입장하실 수 있습니다.</p>
+                    <p>모바일로 직접 발권하고, 별도 발권 절차 없이 입구에서 바코드 인식 후 바로 입장하실 수 있습니다.</p>
+                    <p>상품에 따라, 스마트티켓을 제공하지 않을 수 있습니다.</p>
+                    <p>스마트티켓 발권 가능 시간은 상품별로 상이합니다. (예매 취소 마감시간 이후 발권 가능하여 예매 취소 불가)</p>
+                    <p>- 공연전시 당일 관람권 : 관람일 당일 자정부터 발권 가능</p>
+                    <p>- 공연전시 기간권 : 관람일 기간 내 발권 가능</p>
+                    <p>이미 종이 티켓으로 발권 받으신 경우, 스마트티켓 발권이 불가합니다. (동시 사용 불가)​ </p>
+                                  
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" id="qna-5">
+                <label for="qna-5">상품에 대해서 문의하려면 어떻게 해야 하나요?</label>
+                <div>
+                    <p>상품에 관한 내용은 상품상세 화면에 자세히 안내되어 있습니다. 마이페이지 > 주문내역에서 주문한 상품을 선택하면 상세페이지로 이동합니다.</p>
+                    <p>상품 상세 내용에 표시되어 있지 않은 내용은 판매자에게 문의해 주십시오.</p>
+                    <p>> 판매자에게 문의</p>
+                    <p>"마이페이지 > 주문내역에서 상품 선택 > 배송/교환/반품 안내"에 표기된 판매자 연락처로 문의</p>
+                    
+                </div>
+            </li>
+        </ul>
                 </div>
               </div>
             </div>
-           
-           <div class="row mb-5">
-           	  <div class="col-md-12 mb-5">
-           		<h3>page</h3>
-              </div>
-           </div>
-           
           </div>
         </div>
       </div>
     </div>
-
+  </body>
