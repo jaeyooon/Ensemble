@@ -5,6 +5,30 @@
   <!-- bootstrap tab template -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
+  <!-- KAKAO MAP API -->
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=da1e82165dc5c5973f53df275ee2dae6"></script>
+  <script>
+  var map;
+  function display(){
+  	var lat = $('#lat').val();  /* lat id부여되면 val함수 쓰면 받아오겠다 */
+  	var lng = $('#lng').val(); 
+  	
+  	var mapContainer =document.querySelector('#map'); /* #map이 있어야 뿌릴수 있음 */
+  	var mapOption = { 
+          center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
+          level: 8 // 지도의 확대 레벨
+      };
+  	map = new kakao.maps.Map(mapContainer, mapOption); //지도 생성
+  	
+  	
+  	var marker = new kakao.maps.Marker({
+  	    position: markerPosition
+  	});
+  };
+  </script>
+
+  
+  
   </head>
   
   <body>
@@ -63,10 +87,14 @@
 		  	 <h3>tab1</h3>
 		  </div>
 		  <div class="tab-pane fade" id="nav-two" role="tabpanel" aria-labelledby="nav-two-tab">
-		  	 <h3>tab2</h3>
+		  	 <h3>Locations</h3>
+		  	 
 		  </div>
 		  <div class="tab-pane fade" id="nav-three" role="tabpanel" aria-labelledby="nav-three-tab">
-		  	 <h3>tab3</h3>
+		  	 <h3 color="black" text-align="center">Locations</h3>
+		  	 <div id="map" style="width:500px;height:500px;"></div>
+		  	 <input id="lat" type="hidden" th:value="${itemdetail2.lat}" readonly="readonly">  <!-- DTO에 해당하는 컬럼 중 lat만 -->
+       		 <input id="lng" type="hidden" th:value="${itemdetail2.lng}" readonly="readonly">  <!-- DTO에 해당하는 컬럼 중 lat만 -->
 		  </div>
 		  <div class="tab-pane fade" id="nav-four" role="tabpanel" aria-labelledby="nav-four-tab">
 		  	 <h3>tab4</h3>
